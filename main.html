@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div id="knockout-app" class="card">
+    <head>
+      <link rel="stylesheet" href="stylesheet.css" />
+    </head>
+    <header>Good dog walks inc.</header>
+    <div class="card-section">
+      <h2>Toy inventory</h2>
+      <p>You don't have any toys yet</p>
+      <button>+ Add toy</button>
+      <ul class="counter-ui-container" data-bind="foreach: inventory">
+        <li>ITEM</li> 
+        <!-- for every item in our inventory it-s gonna create a new child node which we haven't defined
+
+        This is gonna demostrate that the looping is working 
+        check out the app.js self.inventory
+        -->
+      </ul>
+    </div>
+    <body>
+      <script type="text/javascript" src="../knockout-3.5.1.js"></script>
+      <script type="text/javascript" src="app.js"></script>
+    </body>
+    <footer>
+      <span> Have a tail wagging day! </span>
+    </footer>
+  </div>
+</html>
