@@ -26,6 +26,8 @@ function InventoryViewModel() {
   self.addItem = function () {
     var index = Math.floor(Math.random() * iconTypes.length);
     console.log(index)
+    self.inventory.push(iconTypes[index])
+    // i have a differente way to call and update the array with push()
   }
 
 }
