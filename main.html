@@ -7,19 +7,23 @@
     <header>Good dog walks inc.</header>
     <div class="card-section">
       <h2>Toy inventory</h2>
-      <p>You don't have any toys yet</p>
-      <button data-bind="click: addItem">+ Add toy</button>
+      <p data-bind="visible: inventory().length > 0">There are the assets we have to work with</p>
+      <!-- If this list has toys i want to shows it -->
+      <p data-bind="visible: inventory().length === 0">You don't have any toys yet!</p> 
+      <!-- is the list is empty i want to show it -->
+      <button data-bind="click: addItem, enable: inventory().length < 4">+ Add toy</button>
+      <!-- i want the button to be enabled as long as the inventory is less than certain amount of if you think of it in like the negative sense you could disable it, if the buttono is a certain amount. -->
+
       <ul class="counter-ui-container" data-bind="foreach: inventory">
-        <!-- for each item in our inventory we're iterating through it when we are on the first one it's gonna come in and create a <li> for that first item in the list -->
         <li>
           <span>
             <span data-bind="class: $data.icon"></span>
             <span data-bind="text: $data.text"></span>
-            <!-- we have object.text in app.js to reference that data point inside we're looping through. we have an special kind of magic word $ -->
           </span>
           <span>
-            <button>&times;</button> 
-            <!-- Just type &times; to create a x in the button -->
+            <button data-bind="click: $parent.removeItem, attr: { 'item-index': $index }">
+              &times;
+            </button> 
           </span>
         </li> 
       </ul>

@@ -30,7 +30,13 @@ function InventoryViewModel() {
     // i have a differente way to call and update the array with push()
   }
 
-}
+  self.removeItem = function (data, event) {
+    var indexToRemove = event.target.getAttribute("item-index");
+    self.inventory.splice(indexToRemove, 1)
+  }
+
+
+};
 
 const knockoutApp = document.querySelector("#knockout-app");
 ko.applyBindings(new InventoryViewModel(), knockoutApp);
